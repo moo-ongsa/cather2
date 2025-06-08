@@ -149,7 +149,7 @@ export default function Page({ params }) {
         audio: true,
       })
       .then((stream) => {
-        addVideoStream(myVideo, stream);
+        addVideoStream(myVideo, stream, true);
         currentUserVideoStreamId = stream.id;
 
         myPeer.on("call", (call) => {
@@ -239,12 +239,15 @@ export default function Page({ params }) {
       }
     }
 
-    function addVideoStream(userPeerId, stream) {
+    function addVideoStream(userPeerId, stream, muted) {
       setVideoList((prevVideoList) => {
         if (prevVideoList.map(({ id }) => id).includes(stream.id)) {
           return prevVideoList;
         }
-        return [...prevVideoList, { src: stream, id: stream.id, userPeerId }];
+        return [
+          ...prevVideoList,
+          { src: stream, id: stream.id, userPeerId, muted },
+        ];
       });
       // video.srcObject = stream;
       // video.id = stream.id;
@@ -927,7 +930,7 @@ export default function Page({ params }) {
         id="video-grid"
         className="absolute right-0 bottom-0 m-4 flex flex-col md:flex-row"
       >
-        {videoList.map(({ id, src }) => (
+        {videoList.map(({ id, src, muted }) => (
           <video
             key={id}
             ref={(video) => {
@@ -937,6 +940,7 @@ export default function Page({ params }) {
             }}
             id={id}
             width={260}
+            muted={muted}
             className="w-[100px] md:w-[260px]"
             autoPlay
             playsInline
