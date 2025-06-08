@@ -21,19 +21,9 @@ export default function Page({ params }) {
     zone2: false,
   });
   const hudRef = useRef(new Hud({}));
-  var socket = io("http://localhost:8000");
+  var socket = io("https://cather-service.onrender.com");
   var xDown = null;
   var yDown = null;
-  // useEffect(() => socketInitializer(), []);
-
-  // const socketInitializer = async () => {
-  //   // await api.get("socket");
-  //   // socket = io();
-
-  //   // socket.on("connect", () => {
-  //   //   console.log("connected");
-  //   // });
-  // };
 
   useEffect(() => {
     fetch("/api/socket");

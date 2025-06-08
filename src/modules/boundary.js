@@ -11,7 +11,7 @@ export class Boundary {
 
   draw() {
     if (this.canvasContext) {
-      this.canvasContext.fillStyle = "rgba(255,0,0,0.5)"; //rgba(255,0,0,0.5)
+      this.canvasContext.fillStyle = "rgba(255,0,0,0)"; //rgba(255,0,0,0.5)
       this.canvasContext.fillRect(
         this.position.x,
         this.position.y,
