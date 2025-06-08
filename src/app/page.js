@@ -64,7 +64,7 @@ export default function Home() {
       <ThemeSwitch />
       <div
         id="meetings"
-        className=" absolute top-36 right-0 bottom-36 w-96 transition-transform transform ease-in-out duration-300"
+        className="absolute h-[520px] overflow-auto md:overflow-visible top-[250px] md:top-36 right-0 bottom-36 w-96 transition-transform transform ease-in-out duration-300"
       >
         {rooms.map(({ id, name, timeStamp, isNew }) => (
           <div
@@ -97,7 +97,7 @@ export default function Home() {
       </div>
       <div></div>
       <form
-        className="w-full max-w-xl fixed top-44 md:top-auto md:bottom-10"
+        className="w-full max-w-xl fixed top-44 md:t-auto md:bottom-10"
         onSubmit={onSubmit}
       >
         <div className="flex items-center border-b border-blue-300 py-2">
@@ -117,7 +117,7 @@ export default function Home() {
         </div>
       </form>
 
-      <div className="fixed bottom-36 left-36 text-left">
+      <div className="fixed bottom-2 left:36 md:bottom-36 md:left-36 text-left">
         <h1 className="font-normal text-xl">
           {moment(date).format("MMMM Do YYYY, h:mm:ss a")}
         </h1>

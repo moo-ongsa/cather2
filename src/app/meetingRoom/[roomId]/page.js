@@ -923,7 +923,10 @@ export default function Page({ params }) {
       >
         →
       </button>
-      <div id="video-grid" className="absolute bottom-0 m-4 flex">
+      <div
+        id="video-grid"
+        className="absolute right-0 bottom-0 m-4 flex flex-col md:flex-row"
+      >
         {videoList.map(({ id, src }) => (
           <video
             key={id}
@@ -934,7 +937,7 @@ export default function Page({ params }) {
             }}
             id={id}
             width={260}
-            muted
+            className="w-[100px] md:w-[260px]"
             autoPlay
             playsInline
           />
